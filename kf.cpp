@@ -7,8 +7,8 @@ using namespace std;
 using namespace arma;
 
 int main(){
-	mat A(1,1), B(1,1), H(1,1), Q(1,1), R(1,1);
-	colvec u(1),x0(1);
+    mat A(1,1), B(1,1), H(1,1), Q(1,1), R(1,1);
+    colvec u(1),x0(1);
     colvec v(1),w(1); 
     colvec x(1),z(1); 
     colvec x_m(1),x_p(1),z_m(1);
@@ -23,9 +23,9 @@ int main(){
     u << 12.0;
     x =  x.zeros();
     P_m = P_m.eye();
-	x_m = x_m.zeros();
-	x = x0;
-	x_m = x0;
+    x_m = x_m.zeros();
+    x = x0;
+    x_m = x0;
 
     ofstream myfile;
     myfile.open ("example21.csv");
@@ -52,6 +52,6 @@ int main(){
 	}
 
     myfile.close();
-	return 0;
+    return 0;
 }
 
