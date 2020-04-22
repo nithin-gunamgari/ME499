@@ -30,26 +30,26 @@ int main(){
     ofstream myfile;
     myfile.open ("example21.csv");
 
-	for (int k = 0; k < 100; k++) {
-        v.randn(1);
-        w.randn(1);
-        v = sqrt(Q) * v;
-        w = sqrt(R) * w;
-        x = A * x + B * u + v;
-        z = H * x + w;
+    for (int k = 0; k < 100; k++) {
+	v.randn(1);
+	w.randn(1);
+	v = sqrt(Q) * v;
+	w = sqrt(R) * w;
+	x = A * x + B * u + v;
+	z = H * x + w;
 
-        x_p = A * x_m + B * u;
-        P_p_ = A * P_m * trans(A) + Q;
+	x_p = A * x_m + B * u;
+	P_p_ = A * P_m * trans(A) + Q;
 
-        mat K = P_p * trans(H) * inv(H * P_p * trans(H) + R);
-        x_m = x_p + K * (z - H * x_p);
-        P_m = P_p - K * H * P_p;
+	mat K = P_p * trans(H) * inv(H * P_p * trans(H) + R);
+	x_m = x_p + K * (z - H * x_p);
+	P_m = P_p - K * H * P_p;
 
-        z_m = H * x_m;
-        cout << x_m;
+	z_m = H * x_m;
+	cout << x_m;
 
-        myfile << x_m<<x<<z_m;
-	}
+	myfile << x_m<<x<<z_m;
+    }
 
     myfile.close();
     return 0;
