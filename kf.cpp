@@ -1,15 +1,15 @@
 #include <math.h>
 #include <fstream>
 #include <assert.h>
-#include <armadillo>
+#include <armadillo>  // using armadillo for matrix operations
 
 using namespace std;
-using namespace arma;
+using namespace arma; 
 
 int main(){
     mat A(1,1), B(1,1), H(1,1), Q(1,1), R(1,1);
     colvec u(1),x0(1);
-    colvec v(1),w(1); 
+    colvec v(1),w(1); // noise 
     colvec x(1),z(1); 
     colvec x_m(1),x_p(1),z_m(1);
     mat P_p(1,1),P_m(1,1);
@@ -28,7 +28,7 @@ int main(){
     x_m = x0;
 
     ofstream myfile;
-    myfile.open ("example21.csv");
+    myfile.open ("kalman.csv");
 
     for (int k = 0; k < 100; k++) {
 	v.randn(1);
